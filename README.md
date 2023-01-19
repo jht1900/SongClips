@@ -1,26 +1,7 @@
-SongClips
-=============
+# SongClips
 
-for iOS.
-<p align="center">
-<img src="Tests/Screenshots/1.png" width="36.2%"/>&nbsp;
-<img src=" Tests/Screenshots/2.png" width="48%"/></p>
+Use SongClips to divide up any song in your Music library into individual clips.
 
-#####Current Version: x.x.x
+Add your notes and images to each clip.
 
-Introduction
-===========
-xxxxx<br>
-<b>• xx.<br>
-• xxxxx.<br>
-• xxxx.<br>
-</b>
-
-License
-==========
-MIT License.<br>
-©2009 John Henry Thompson.
-
-Credits
-==========
-Created by John Henry Thompson © 2009.<br>
+http://www.j4u2.com/songclips

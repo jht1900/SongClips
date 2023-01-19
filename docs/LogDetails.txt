@@ -1,0 +1,24 @@
+-------------------------------------------------------
+2016-xx-xx
+
+-------------------------------------------------------
+2016-03-07
+
+Classes/ClipPlayCtl.m:1085:9: 'presentModalViewController:animated:' is deprecated: first deprecated in iOS 6.0
+
+Classes/ClipPlayCtl.m:1250:8: 'dismissModalViewControllerAnimated:' is deprecated: first deprecated in iOS 6.0
+
+- fix xib warnings
+
+Classes/SongList.m:282:17: Null passed to a callee that requires a non-null argument
+
+Check dependencies
+
+No architectures to compile for (ONLY_ACTIVE_ARCH=YES, active arch=arm64, VALID_ARCHS=armv7s armv7).
+
+[]BUG: Can't select from music library. Only init music library selection goes thru
+
+SongList: pause.2 musicPlayer.currentPlaybackTime=100.654490
+SongList: handle_PlaybackStateChanged playbackState=2 nowPlayingItem=0x1556f0140 lastClipIndex=0
+ClipPlayCtl playbackStateChanged: playPauseButton.selected=1 songList.isPlaying=0
+Warning: Attempt to present <MPMediaPickerController: 0x156801ab0> on <SongListCtl: 0x15554f240> while a presentation is in progress!
