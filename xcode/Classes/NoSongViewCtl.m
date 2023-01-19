@@ -54,7 +54,7 @@
     //[self dismissModalViewControllerAnimated:YES];
     [self dismissViewControllerAnimated:YES completion:nil];
 
-//    // !!@ 2023 temp
+//    // !!@ 2023 temp - attempt to dismiss extra ctl on startup
 //    [self dismissViewControllerAnimated:YES completion:nil];
 }
 

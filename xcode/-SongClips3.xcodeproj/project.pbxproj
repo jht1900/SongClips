@@ -114,6 +114,7 @@
 		A5E88181104E293F003B2011 /* Song.m in Sources */ = {isa = PBXBuildFile; fileRef = A5E8817E104E293F003B2011 /* Song.m */; };
 		A5E88182104E293F003B2011 /* Clip.m in Sources */ = {isa = PBXBuildFile; fileRef = A5E88180104E293F003B2011 /* Clip.m */; };
 		A5ECE83814BD1004008EC75D /* SongCell-iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = A5ECE83614BD1004008EC75D /* SongCell-iPad.xib */; };
+		ABEB539A2979B82500D40C16 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ABEB53992979B81700D40C16 /* Assets.xcassets */; };
 		BA7B07971DC27C27006AC2C7 /* base64.m in Sources */ = {isa = PBXBuildFile; fileRef = BA7B07961DC27C27006AC2C7 /* base64.m */; };
 		BAA081D41D70C0B60017DE13 /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = BAA081D31D70C0B60017DE13 /* JSONKit.m */; };
 		BAA8B9601D6F29F30074FD02 /* UtilMem.m in Sources */ = {isa = PBXBuildFile; fileRef = BAA8B95D1D6F29F30074FD02 /* UtilMem.m */; };
@@ -272,6 +273,7 @@
 		A5E88180104E293F003B2011 /* Clip.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Clip.m; sourceTree = "<group>"; };
 		A5ECE83714BD1004008EC75D /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = "en.lproj/SongCell-iPad.xib"; sourceTree = "<group>"; };
 		ABEB537C2978F2E100D40C16 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		ABEB53992979B81700D40C16 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BA59CA851C8E0E2F009C3DF2 /* Log.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = Log.md; path = ../docs/Log.md; sourceTree = "<group>"; };
 		BA59CA871C8E1302009C3DF2 /* LogDetails.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = LogDetails.txt; path = ../docs/LogDetails.txt; sourceTree = "<group>"; };
 		BA59CA881C8E1D60009C3DF2 /* Plan.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = Plan.md; path = ../docs/Plan.md; sourceTree = "<group>"; };
@@ -344,6 +346,7 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				ABEB53992979B81700D40C16 /* Assets.xcassets */,
 				ABEB537C2978F2E100D40C16 /* README.md */,
 				BA59CA861C8E0E37009C3DF2 /* docs */,
 				A58CED54147B5B3A0015A843 /* plist */,
@@ -710,6 +713,7 @@
 				A54AD73814B38AF90055541D /* add_songs.png in Resources */,
 				A54AD73B14B38AF90055541D /* add_songs_hi.png in Resources */,
 				A54AD73E14B38AF90055541D /* back.png in Resources */,
+				ABEB539A2979B82500D40C16 /* Assets.xcassets in Resources */,
 				A54AD74114B38AF90055541D /* cam.png in Resources */,
 				A54AD74414B38AF90055541D /* cam_hi.png in Resources */,
 				A54AD74714B38AF90055541D /* clip.png in Resources */,

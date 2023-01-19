@@ -1,5 +1,9 @@
 # SongClips Dev Log
 
+# --
+2023-01-19 11:43:06
+
+>> Attemp to use Assets catalog - still have icons warning from app store submit
 
 # --
 2023-01-18

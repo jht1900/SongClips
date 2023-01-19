@@ -197,10 +197,16 @@ static NSTimeInterval	g_ClipNoteUpdateInterval = kClipNoteUpdateInterval;
 	MPMediaItemArtwork *artwork = [currentItem valueForProperty: MPMediaItemPropertyArtwork];
 	ATRACE(@"ClipPlayCtl: updateForMediaItem artwork=%@ ", artwork);
 	
+    // Attempt to fix size of icon
+    CGFloat dim = 40;
+    
 	// Obtain a UIImage object from the MPMediaItemArtwork object
 	if (artwork) {
-		artworkImage = [artwork imageWithSize: _backArtView.frame.size];
-		artworkImageForBack = artworkImage;
+//        artworkImage = [artwork imageWithSize: _backArtView.frame.size];
+//        artworkImageForBack = artworkImage;
+        // !!@ 2023 explict small size of icom artwork image
+        artworkImage = [artwork imageWithSize: CGSizeMake(dim, dim)];
+        artworkImageForBack =  [artwork imageWithSize: _backArtView.frame.size];
 		CGRect rt = [artwork bounds];
 		ATRACE(@"ClipPlayCtl: updateForMediaItem artworkImage=%@ bounds=%f %f", artworkImage, rt.size.width, rt.size.height );
 		if (rt.size.width <= 0.0 ) {
@@ -212,23 +218,31 @@ static NSTimeInterval	g_ClipNoteUpdateInterval = kClipNoteUpdateInterval;
 		artworkImageForBack = [UIImage imageNamed: @"no_artwork.png"];
 	}
 	// Obtain a UIButton object and set its background to the UIImage object
-	UIButton *artworkView = [[UIButton alloc] initWithFrame: CGRectMake (0, 0, 40, 40)];
-	[artworkView setBackgroundImage: artworkImageForBack forState: UIControlStateNormal];
-	
+	UIButton *artworkView = [[UIButton alloc] initWithFrame: CGRectMake (0, 0, dim, dim)];
+//    [artworkView setBackgroundImage: artworkImageForBack forState: UIControlStateNormal];
+    [artworkView setBackgroundImage: artworkImage forState: UIControlStateNormal];
+
 	// Obtain a UIBarButtonItem object and initialize it with the UIButton object
 	UIBarButtonItem *newArtworkItem = [[UIBarButtonItem alloc] initWithCustomView: artworkView];
-	[self setArtworkItem: newArtworkItem];
+    // !!@ 2023 temp
+//    [self setArtworkItem: newArtworkItem];
+    // set enables back image! sometimes
+    self.artworkItem = newArtworkItem;
 
 	[artworkView addTarget:self action:@selector(showSongsAction:) forControlEvents:UIControlEventTouchUpInside];
 	
 	// Display the new media item artwork
     // !!@ 2023 temp
 //	[self.navigationItem setLeftBarButtonItem: _artworkItem animated: YES];
-	
-	[self newBackArt: artworkImage];
-		
-	_albumArt = artworkImage;
-	
+    // Disable to show left arrow in place of distorted art image
+//    self.navigationItem.leftBarButtonItem = _artworkItem;
+
+    [self newBackArt: artworkImageForBack];
+//    [self newBackArt: artworkImage];
+
+//    _albumArt = artworkImage;
+    _albumArt = artworkImageForBack;
+
     [self showTitle];
 }
 

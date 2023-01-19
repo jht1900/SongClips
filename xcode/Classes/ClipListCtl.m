@@ -49,7 +49,9 @@ static NSString *kCellIdentifier = @"ClipCell";
 	[buttonView setBackgroundImage: [UIImage imageNamed:@"back_arrow.png"] forState: UIControlStateNormal];
 	UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithCustomView: buttonView];
 	[buttonView addTarget:self action:@selector(actionBack:) forControlEvents:UIControlEventTouchUpInside];
-	self.navigationItem.leftBarButtonItem = backButton;
+    // !!@ 2023 ClipListCtl navigationItem.leftBarButtonItem
+    // disabled to show standard left arrow rather than disstorted back arrow image
+//	self.navigationItem.leftBarButtonItem = backButton;
 
 	self.titleView = [TitleView alloc];
     NSString *nibName = g_appDelegate.ipadMode? @"TitleView-iPad" : @"TitleView";
