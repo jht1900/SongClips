@@ -7,20 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5C4000000000000000000020 /* no_artwork.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C4000000000000000000010 /* no_artwork.png */; };
-		5C4000000000000000000021 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5C4000000000000000000011 /* Settings.bundle */; };
+		5C4000000000000000000020 /* Resources/no_artwork.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C4000000000000000000010 /* Resources/no_artwork.png */; };
+		5C4000000000000000000021 /* Resources/Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5C4000000000000000000011 /* Resources/Settings.bundle */; };
 		5C4000000000000000000022 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C4000000000000000000012 /* Assets.xcassets */; };
-		5C4000000000000000000023 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C4000000000000000000013 /* Default.png */; };
-		5C4000000000000000000024 /* icon_48.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C4000000000000000000014 /* icon_48.png */; };
+		5C4000000000000000000023 /* Resources-SongClips/Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C4000000000000000000013 /* Resources-SongClips/Default.png */; };
+		5C4000000000000000000024 /* Resources-SongClips/icon_48.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C4000000000000000000014 /* Resources-SongClips/icon_48.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		5C4000000000000000000004 /* SongClips4.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SongClips4.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		5C4000000000000000000010 /* no_artwork.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Resources/no_artwork.png; sourceTree = "<group>"; };
-		5C4000000000000000000011 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Resources/Settings.bundle; sourceTree = "<group>"; };
+		5C4000000000000000000010 /* Resources/no_artwork.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Resources/no_artwork.png; sourceTree = "<group>"; };
+		5C4000000000000000000011 /* Resources/Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Resources/Settings.bundle; sourceTree = "<group>"; };
 		5C4000000000000000000012 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		5C4000000000000000000013 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Resources-SongClips/Default.png"; sourceTree = "<group>"; };
-		5C4000000000000000000014 /* icon_48.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Resources-SongClips/icon_48.png"; sourceTree = "<group>"; };
+		5C4000000000000000000013 /* Resources-SongClips/Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Resources-SongClips/Default.png"; sourceTree = "<group>"; };
+		5C4000000000000000000014 /* Resources-SongClips/icon_48.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Resources-SongClips/icon_48.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -42,7 +42,7 @@
 			path = SongClips4;
 			sourceTree = "<group>";
 		};
-		5C400000000000000000000B /* img */ = {
+		5C400000000000000000000B /* Resources/img */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = Resources/img;
 			sourceTree = "<group>";
@@ -80,12 +80,12 @@
 		5C400000000000000000000C /* Shared Resources */ = {
 			isa = PBXGroup;
 			children = (
-				5C400000000000000000000B /* img */,
+				5C400000000000000000000B /* Resources/img */,
 				5C4000000000000000000012 /* Assets.xcassets */,
-				5C4000000000000000000013 /* Default.png */,
-				5C4000000000000000000014 /* icon_48.png */,
-				5C4000000000000000000010 /* no_artwork.png */,
-				5C4000000000000000000011 /* Settings.bundle */,
+				5C4000000000000000000013 /* Resources-SongClips/Default.png */,
+				5C4000000000000000000014 /* Resources-SongClips/icon_48.png */,
+				5C4000000000000000000010 /* Resources/no_artwork.png */,
+				5C4000000000000000000011 /* Resources/Settings.bundle */,
 			);
 			name = "Shared Resources";
 			sourceTree = "<group>";
@@ -107,7 +107,7 @@
 			);
 			fileSystemSynchronizedGroups = (
 				5C4000000000000000000009 /* SongClips4 */,
-				5C400000000000000000000B /* img */,
+				5C400000000000000000000B /* Resources/img */,
 			);
 			name = SongClips4;
 			packageProductDependencies = (
@@ -156,10 +156,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				5C4000000000000000000022 /* Assets.xcassets in Resources */,
-				5C4000000000000000000023 /* Default.png in Resources */,
-				5C4000000000000000000024 /* icon_48.png in Resources */,
-				5C4000000000000000000020 /* no_artwork.png in Resources */,
-				5C4000000000000000000021 /* Settings.bundle in Resources */,
+				5C4000000000000000000023 /* Resources-SongClips/Default.png in Resources */,
+				5C4000000000000000000024 /* Resources-SongClips/icon_48.png in Resources */,
+				5C4000000000000000000020 /* Resources/no_artwork.png in Resources */,
+				5C4000000000000000000021 /* Resources/Settings.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -263,7 +263,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 4.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.j4u2.SongClips4;
+				PRODUCT_BUNDLE_IDENTIFIER = com.j4u2.SongClips;
 				PRODUCT_NAME = SongClips4;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
@@ -289,7 +289,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 4.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.j4u2.SongClips4;
+				PRODUCT_BUNDLE_IDENTIFIER = com.j4u2.SongClips;
 				PRODUCT_NAME = SongClips4;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
