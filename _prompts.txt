@@ -8,3 +8,8 @@ make main default branch
 convert xcode/-SongClips3.xcodeproj
 from objective-C
 to modern Swift
+
+0.3
+
+create new project xcode/-SongClips4.xcodeproj
+a SwiftUI version of xcode/-SongClips3.xcodeproj

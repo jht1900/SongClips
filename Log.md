@@ -123,3 +123,90 @@ SongClips is now a Swift project: about 22,000 lines of Objective-C (15,000 of t
 One visible difference: I added a modern launch screen setting, so the app now fills the whole screen on current iPhones instead of the old 4-inch size. The layout files use Auto Layout and the song list looked right, but check the player screen on an iPhone and an iPad.
 
 *Time: 19m 15s · Cost: $9.0512 (input 154, output 120.4k, cache write 360.3k, cache read 18800.5k) · session $9.0512*
+
+---
+
+## User (11/25/2026, 10:10:33 PM)
+
+```
+create new project xcode/-SongClips4.xcodeproj
+a SwiftUI version of xcode/-SongClips3.xcodeproj
+```
+
+## Assistant
+
+I'll start by looking at the existing SongClips3 project.
+
+Now reading the Swift sources (model first, then UI).
+
+Let me check the player XIB layout so the SwiftUI screen keeps the same controls and images.
+
+I have the full picture of SongClips3 now. Checking a couple of image sizes and the TitleView look before writing the SwiftUI app.
+
+Now the shared helpers (alerts become observable state shown by the root view):
+
+Now the model, made `@Observable` so SwiftUI views refresh on edits. Plist keys and file layout stay identical, so SongClips4 reads the same saved data format.
+
+Now adapting Song for Observation:
+
+I'll avoid `didSet` on an observed property and key the artwork caches by the media item instead:
+
+Now navigation state and the song importer (URL import + media download), which lived inside the player view controller before:
+
+Now the app entry point and root view:
+
+Switching to the non-deprecated alert API:
+
+Now the UIKit bridges (video layer, Music picker, camera, mail):
+
+Now the song list screen:
+
+Adding the shared replace-media helper to SongList:
+
+Now the remaining screens: play mode, missing media, clip list, info, video browser, web page.
+
+Now Info.plist (same keys as SongClips3, minus the UIKit scene delegate):
+
+Now the Xcode project. Sources come from a synchronized `SongClips4/` folder; the existing images, Settings.bundle, launch image and asset catalog are shared by reference with SongClips3.
+
+The `--` in the redirects was misused (it created a stray empty file named `--`). Cleaning that up and writing the files with the Write tool instead:
+
+Building for the iOS Simulator:
+
+It builds. One isolation warning to fix:
+
+The PhotosPicker label closure is nonisolated; `bundleImage` only touches thread-safe `UIImage(named:)`, so I'll mark it `nonisolated`:
+
+Clean build with no warnings, and all images are in the bundle. Let me launch it in the Simulator to check the screens actually render.
+
+An iPhone 17 simulator is already booted. I'll install, seed it with the sample song in `Resources-kdhc/Documents`, and launch:
+
+I've created `xcode/-SongClips4.xcodeproj`, a SwiftUI version of SongClips3. It builds for the iOS Simulator with no errors or warnings, but I've only actually seen one screen run.
+
+**What I checked:** I installed it on the booted iPhone 17 simulator with the sample song from `Resources-kdhc/Documents`. The song list shows the sample song "Hallelujah Chalisa" highlighted as the current song, the green "Add from iPod Library..." row, the icon button and the Edit button. The "Open in 'SongClips'?" popup in that screenshot is a system prompt; the "◀ SongClips" back link above it suggests it came from SongClips3, not the new app. I can't tap in the simulator from here, so the player, clip list, info, editing, pickers and actual playback are untested. The player screen is the one to check first.
+
+**Layout**
+- **New code** is in `xcode/SongClips4/`. Xcode picks up files in that folder automatically, so you can add files there without editing the project.
+- **Shared with SongClips3** by reference: the button images in `Resources/img`, `no_artwork.png`, `Settings.bundle`, `Assets.xcassets`, `Default.png` and `icon_48.png`.
+- **SongClips3 is unchanged.**
+
+**How it was converted**
+- **Unchanged:** the storage, formatting, image cache, site client, export parser and video view code is copied as is.
+- **Model:** `Song`, `Clip` and `SongList` now notify the screens directly when they change. Saved files use the same keys and folder layout, so SongClips4 reads existing SongClips data.
+- **Playback timing:** the 10-times-a-second update now lives in `SongList` instead of the player screen. Play modes (repeat, pause, etc.) and clip rates now work on every screen, not only while the player is visible.
+- **Screens:** each view controller and its layout file became a SwiftUI view. The player keeps the original layout: the dimmed clip image or album art with a 1-second fade, the notes overlay, the control bar with the original button images, the scrubber, and the edit panels for notes, photo/camera and split/merge.
+- **Picking photos** uses the standard iOS photo picker. Camera, Music library picker and mail use UIKit wrappers in `SongClips4/UI/UIKitBridges.swift`.
+- **Importing:** `songclips:` link imports and media downloads moved out of the player into `SongImporter` (`SongClips4/Model/SongImporter.swift`).
+
+**Differences from SongClips3**
+- **No splash screen:** the app opens straight to the song list.
+- **Play-mode chooser** is a popover on iPhone too; SongClips3 pushed it as a full screen on iPhone.
+- **iPhone is portrait only.**
+- **Library access:** the app asks for Music library access on first launch.
+- **Notes edits** are saved before switching clips, so they aren't lost.
+- **Returning from the clip list** keeps video playing. SongClips3 recreated the video player when the player screen reappeared, which looks like it stopped the video.
+- **Identity:** bundle ID `com.j4u2.SongClips4`, app name "SongClips4", version 4.0, so it installs alongside SongClips3. Both apps still register the `songclips:` link scheme, so iOS may open a link in either one.
+
+Nothing is committed yet.
+
+*Time: 12m 54s · Cost: $4.3677 (input 78, output 89.7k, cache write 188.8k, cache read 5312.2k) · session $4.3677*
