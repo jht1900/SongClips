@@ -4,12 +4,12 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SongCell">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SongCell" customModule="SongClips" customModuleProvider="target">
             <connections>
-                <outlet property="detailTextLabel" destination="52" id="76"/>
+                <outlet property="fDetail" destination="52" id="76"/>
                 <outlet property="fImage" destination="72" id="77"/>
                 <outlet property="fView" destination="1" id="62"/>
-                <outlet property="textLabel" destination="70" id="75"/>
+                <outlet property="fTitle" destination="70" id="75"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
