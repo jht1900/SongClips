@@ -40,3 +40,24 @@ https://www.j4u2.com/songclips/#userguide
 
 https://github.com/jht1900/SongClips/blob/main/README.md
 
+Before you can submit this app for review, 
+an Admin must provide information about the app’s privacy practices 
+in the App Privacy section. Learn More
+You must upload a screenshot for 13-inch iPad displays.
+You must upload a screenshot for iPhone with Dynamic Island (medium display).
+
+The items below are required to start the review process:
+You must upload a screenshot for 13-inch iPad displays.
+You must upload a screenshot for iPhone with Dynamic Island (medium display).
+
+>> Encryption compliance
+
+Drag and drop to add assets or choose from your Asset Library 
+for iPhone 6.1" or 6.3" displays. 
+Supported sizes for app previews include 
+1920 × 886px and 886 × 1920px. For app screenshots, 
+supported sizes include 2556 × 1179px, 1179 × 2556px, 2622 × 1206px 
+and 1206 × 2622px.
+
+>> Add from Music Library
+>> SongClips name
