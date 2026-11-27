@@ -13,3 +13,9 @@ to modern Swift
 
 create new project xcode/-SongClips4.xcodeproj
 a SwiftUI version of xcode/-SongClips3.xcodeproj
+
+0.4
+
+reorg folders
+- rename xcode folder aa
+- create new folder z-archived and move docs, bin into it.
