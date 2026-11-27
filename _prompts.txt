@@ -59,5 +59,11 @@ Supported sizes for app previews include
 supported sizes include 2556 × 1179px, 1179 × 2556px, 2622 × 1206px 
 and 1206 × 2622px.
 
->> Add from Music Library
+>> Add from Library
 >> SongClips name
+
+0.7
+
+in aa/SongClips-swiftUI
+apply to info plist
+ITSAppUsesNonExemptEncryption to NO

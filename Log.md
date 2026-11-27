@@ -384,3 +384,23 @@ I left out the XIBs and other launch images in those folders because the SwiftUI
 The two projects now keep separate copies, so a change to an image in one won't show up in the other. The 41 new files are staged with the earlier moves, and nothing is committed yet.
 
 *Time: 51s · Cost: $0.0865 (input 8, output 1.5k, cache write 2.3k, cache read 186.9k) · session $0.8763*
+
+---
+
+## User (11/27/2026, 7:10:21 AM)
+
+```
+in aa/SongClips-swiftUI
+apply to info plist
+ITSAppUsesNonExemptEncryption to NO
+```
+
+## Assistant
+
+You've renamed `SongClips4/` to `Sources/` since my last change. The project already points at `Sources/Info.plist`, so I'll add the key there:
+
+I set `ITSAppUsesNonExemptEncryption` to `NO` in [aa/SongClips-swiftUI/Sources/Info.plist](aa/SongClips-swiftUI/Sources/Info.plist), and the file checks out as a valid plist. App Store Connect will now stop asking about export compliance on each upload.
+
+The file was in `Sources/`, not `SongClips4/`. You'd renamed the folder, and the project already points at the new path. The change isn't staged or committed.
+
+*Time: 22s · Cost: $0.4281 (input 10, output 866, cache write 46.0k, cache read 214.1k) · session $1.3045*
