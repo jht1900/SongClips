@@ -33,3 +33,5 @@ why didn't .claude/settings.json hook capture chat session
 reorg
 rename aa/-SongClips3.xcodeproj to aa/SongClips-swift.xcodeproj
 and put it and associated files in a new folder aa/SongClips-swift
+
+copy shared resources into SongClips-swiftUI/
