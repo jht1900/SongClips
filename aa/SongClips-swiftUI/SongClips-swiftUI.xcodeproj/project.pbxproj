@@ -88,7 +88,6 @@
 				5C4000000000000000000011 /* Resources/Settings.bundle */,
 			);
 			name = "Shared Resources";
-			path = ..;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

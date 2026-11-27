@@ -322,3 +322,65 @@ PATH="/opt/homebrew/bin:/usr/local/bin:$PATH" CHAT_LOG=... node .../log-turn.js
 That PATH uses Homebrew's node v26. The script needs Node 18 or newer, so the older nvm versions (v16) won't run it.
 
 *Time: 9s · Cost: $0.0452 (input 6, output 795, cache write 897, cache read 110.3k) · session $0.6241*
+
+---
+
+## User (11/27/2026, 5:36:10 AM)
+
+```
+reorg
+rename aa/-SongClips3.xcodeproj to aa/SongClips-swift.xcodeproj
+and put it and associated files in a new folder aa/SongClips-swift
+```
+
+## Assistant
+
+Building both projects to verify:
+
+Both projects now have their own folders, and both build for the iOS Simulator, resources included.
+
+```
+aa/
+├── SongClips-swift/
+│   ├── SongClips-swift.xcodeproj      (was -SongClips3.xcodeproj)
+│   ├── Sources/, Resources/, Resources-SongClips/, Resources-kdhc/
+│   ├── Assets.xcassets, Info-SongClips.plist, Default-568h@2x.png
+└── SongClips-swiftUI/
+    ├── SongClips-swiftUI.xcodeproj
+    └── SongClips4/
+```
+
+- **Everything SongClips3 used moved with it.** Its project references files relative to its own folder, so nothing inside it needed editing. I also moved `Resources-kdhc/`, which neither project references. It's old sample data, so it went with the older app.
+- **The SwiftUI project still uses the shared resources.** The images, `Settings.bundle` and `Assets.xcassets` now live in `SongClips-swift/`, so I changed its "Shared Resources" path from `..` to `../SongClips-swift`. The catch is that SongClips-swiftUI won't build without its sibling folder. If you want it to stand on its own, I can copy those resources into `SongClips-swiftUI/`.
+- **Scheme name unchanged.** The swift project's scheme is still called `SongClips`. It lives in your personal Xcode data, so I didn't need to change anything for it.
+
+All moves are staged alongside the earlier ones, and nothing is committed yet. Reopen both projects in Xcode from their new paths.
+
+*Time: 1m 42s · Cost: $0.1656 (input 14, output 2.9k, cache write 4.6k, cache read 350.4k) · session $0.7898*
+
+---
+
+## User (11/27/2026, 5:40:07 AM)
+
+```
+copy shared resources into SongClips-swiftUI/
+```
+
+## Assistant
+
+I'll copy just the files the SwiftUI project references, keeping the same relative layout, and point its resource group at its own folder:
+
+SongClips-swiftUI now stands on its own. I copied a lone `SongClips-swiftUI/` folder somewhere else and it built there with all its resources.
+
+**What I copied** from `SongClips-swift/` into `SongClips-swiftUI/`, keeping the same layout:
+- `Assets.xcassets`
+- `Resources/img/`, `Resources/no_artwork.png`, `Resources/Settings.bundle`
+- `Resources-SongClips/Default.png`, `Resources-SongClips/icon_48.png`
+
+I left out the XIBs and other launch images in those folders because the SwiftUI project doesn't use them.
+
+**Project change:** I removed the `../SongClips-swift` path from the "Shared Resources" group, so the project now finds these files inside its own folder.
+
+The two projects now keep separate copies, so a change to an image in one won't show up in the other. The 41 new files are staged with the earlier moves, and nothing is committed yet.
+
+*Time: 51s · Cost: $0.0865 (input 8, output 1.5k, cache write 2.3k, cache read 186.9k) · session $0.8763*
