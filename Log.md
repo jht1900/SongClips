@@ -210,3 +210,115 @@ I've created `xcode/-SongClips4.xcodeproj`, a SwiftUI version of SongClips3. It 
 Nothing is committed yet.
 
 *Time: 12m 54s · Cost: $4.3677 (input 78, output 89.7k, cache write 188.8k, cache read 5312.2k) · session $4.3677*
+
+---
+
+## User (11/27/2026, 5:19:52 AM)
+
+```
+reorg folders
+- rename xcode folder aa
+- create new folder z-archived and move docs, bin into it.
+```
+
+## Assistant
+
+No path references to update. Doing the moves with `git mv`:
+
+The folders are reorganized:
+
+- **`xcode/` → `aa/`**
+- **New `z-archived/`** now holds `docs/` and `bin/`
+
+I used `git mv`, so all 124 files show up as renames and keep their history. The moves are staged but not committed. Nothing was left in the old locations.
+
+I searched the README, workspace file, `.gitignore`, `.claude/` and `tools/` for references to these folders and found none, so nothing else needed changing. The Xcode projects use paths relative to their own folder, so the rename shouldn't affect them. If Xcode had a project open from `xcode/`, close it and reopen it from `aa/`.
+
+Want me to commit it?
+
+*Time: 6m 03s · Cost: $0.2087 (input 12, output 1.1k, cache write 18.3k, cache read 203.9k) · session $0.2087*
+
+---
+
+## User (11/27/2026, 5:25:55 AM)
+
+```
+reorg
+- rename aa/-SongClips4.xcodeproj to aa/SongClips-swiftUI.xcodeproj
+and put it and associated files in a new folder aa/SongClips-swiftUI
+```
+
+## Assistant
+
+Now verifying it builds:
+
+The SwiftUI project now lives in its own folder, and it builds for the iOS Simulator. The built app includes all the shared images, `Settings.bundle` and `Assets.car`.
+
+```
+aa/
+├── -SongClips3.xcodeproj
+├── Assets.xcassets, Resources/, Resources-SongClips/, …   (stay here, shared)
+└── SongClips-swiftUI/
+    ├── SongClips-swiftUI.xcodeproj    (was -SongClips4.xcodeproj)
+    └── SongClips4/                     (Swift sources and Info.plist)
+```
+
+- **Shared resources stay put.** The `-SongClips3` project also uses `Assets.xcassets`, `Resources/` and `Resources-SongClips/`, so I left them in `aa/`. In the moved project, I set the "Shared Resources" group's path to `..` so its existing references still find them.
+- **Scheme updated.** `SongClips4.xcscheme` now points at `SongClips-swiftUI.xcodeproj` instead of the old project name.
+- **Some names haven't changed.** The scheme, target and app are still called `SongClips4`, and so is the source folder. I can rename those to SongClips-swiftUI too if you want.
+
+I used a plain `mv` so your personal Xcode window state (which git ignores) moved with the project, then ran `git add -A` on `aa/`. The changes are staged together with the earlier folder moves, and nothing is committed yet. If Xcode has the old project open, close it and reopen `aa/SongClips-swiftUI/SongClips-swiftUI.xcodeproj`.
+
+*Time: 4m 18s · Cost: $0.1779 (input 16, output 2.8k, cache write 7.7k, cache read 296.3k) · session $0.3866*
+
+---
+
+## User (11/27/2026, 5:30:12 AM)
+
+```
+why didn't .claude/settings.json hook capture chat session
+```
+
+## Assistant
+
+`node` isn't on this shell's PATH. Let me find where it's installed:
+
+That reproduces it. I'll make the hook find node on its own and test it on a copy of the log:
+
+The hook now exits cleanly. Its background writer waits up to 60 s for this turn to settle, so I'll wait for the test log to fill:
+
+I'm waiting for the test run to finish before reporting.
+
+*Time: 30s · Cost: $0.1924 (input 16, output 2.8k, cache write 8.2k, cache read 353.2k) · session $0.5790*
+
+---
+
+## User (11/27/2026, 5:30:44 AM)
+
+```
+<task-notification>
+<task-id>by4lp83wc</task-id>
+<tool-use-id>toolu_01XjT26YFDhJqLDDATtzCvsS</tool-use-id>
+<output-file>/private/tmp/claude-502/-Users-jht2-Documents-projects--2026-SongClips-2026-SongClips/7430bd77-72a2-4918-8460-56d8623b8806/tasks/by4lp83wc.output</output-file>
+<status>completed</status>
+<summary>Background command "F=/private/tmp/claude-502/-Users-jht2-Documents-projects--2026-SongClips-2026-SongClips/7430bd77-72a2-4918-8460-56d8623b8806/scratchpad/Log.md; for i in $(seq 90); do [ -s $F ] &amp;&amp; break; sleep 1; done; grep -c "^## User" $F; grep "^## User\|^\*Time" $F" completed (exit code 0)</summary>
+</task-notification>
+```
+
+## Assistant
+
+The hook never ran in this session because it couldn't find `node`. Claude Code runs hooks with a bare `PATH` (`/usr/bin:/bin:/usr/sbin:/sbin`). Your `node` lives in `/opt/homebrew/bin`, `/usr/local/bin` and `~/.nvm`, and those only get added to the PATH by `~/.zshrc`, which hooks don't load. So the command failed with `node: command not found` (exit 127). A failed Stop hook doesn't block anything, so nothing tells you it failed. It worked in your Nov 25 session probably because VS Code was started with your full shell environment that time.
+
+**Fix:** in [.claude/settings.json](.claude/settings.json), the hook command now puts the Homebrew folders at the front of the PATH:
+
+```
+PATH="/opt/homebrew/bin:/usr/local/bin:$PATH" CHAT_LOG=... node .../log-turn.js
+```
+
+**Tested:** I ran the hook with the same bare PATH against this session's transcript, writing to a scratch copy of the log. It recorded all 3 exchanges so far, with times and costs.
+
+**Catching up:** you don't need to backfill this session by hand. The script logs every exchange after the last one in `Log.md.state`, and that entry is from the Nov 25 session. So the next time the hook runs, it should add this whole session to the real `Log.md`. If Claude Code hasn't picked up the edited settings by then, open `/hooks` or restart the session.
+
+That PATH uses Homebrew's node v26. The script needs Node 18 or newer, so the older nvm versions (v16) won't run it.
+
+*Time: 9s · Cost: $0.0452 (input 6, output 795, cache write 897, cache read 110.3k) · session $0.6241*

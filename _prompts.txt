@@ -19,3 +19,11 @@ a SwiftUI version of xcode/-SongClips3.xcodeproj
 reorg folders
 - rename xcode folder aa
 - create new folder z-archived and move docs, bin into it.
+
+0.5
+
+reorg
+- rename aa/-SongClips4.xcodeproj to aa/SongClips-swiftUI.xcodeproj
+and put it and associated files in a new folder aa/SongClips-swiftUI
+
+why didn't .claude/settings.json hook capture chat session 
