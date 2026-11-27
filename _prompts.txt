@@ -35,3 +35,6 @@ rename aa/-SongClips3.xcodeproj to aa/SongClips-swift.xcodeproj
 and put it and associated files in a new folder aa/SongClips-swift
 
 copy shared resources into SongClips-swiftUI/
+
+https://www.j4u2.com/songclips/#userguide
+
