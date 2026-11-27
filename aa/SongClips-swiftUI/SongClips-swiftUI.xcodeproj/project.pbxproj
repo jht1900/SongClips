@@ -15,7 +15,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		5C4000000000000000000004 /* SongClips4.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SongClips4.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5C4000000000000000000004 /* SongClips.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SongClips.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C4000000000000000000010 /* Resources/no_artwork.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Resources/no_artwork.png; sourceTree = "<group>"; };
 		5C4000000000000000000011 /* Resources/Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Resources/Settings.bundle; sourceTree = "<group>"; };
 		5C4000000000000000000012 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -24,12 +24,12 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		5C400000000000000000000A /* Exceptions for "Sources" folder in "SongClips4" target */ = {
+		5C400000000000000000000A /* Exceptions for "Sources" folder in "SongClips" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Info.plist,
 			);
-			target = 5C4000000000000000000005 /* SongClips4 */;
+			target = 5C4000000000000000000005 /* SongClips */;
 		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
@@ -37,7 +37,7 @@
 		5C4000000000000000000009 /* Sources */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
-				5C400000000000000000000A /* Exceptions for "Sources" folder in "SongClips4" target */,
+				5C400000000000000000000A /* Exceptions for "Sources" folder in "SongClips" target */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -72,7 +72,7 @@
 		5C4000000000000000000003 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5C4000000000000000000004 /* SongClips4.app */,
+				5C4000000000000000000004 /* SongClips.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -93,9 +93,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		5C4000000000000000000005 /* SongClips4 */ = {
+		5C4000000000000000000005 /* SongClips */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5C4000000000000000000033 /* Build configuration list for PBXNativeTarget "SongClips4" */;
+			buildConfigurationList = 5C4000000000000000000033 /* Build configuration list for PBXNativeTarget "SongClips" */;
 			buildPhases = (
 				5C4000000000000000000006 /* Sources */,
 				5C4000000000000000000007 /* Frameworks */,
@@ -109,11 +109,11 @@
 				5C4000000000000000000009 /* Sources */,
 				5C400000000000000000000B /* Resources/img */,
 			);
-			name = SongClips4;
+			name = SongClips;
 			packageProductDependencies = (
 			);
-			productName = SongClips4;
-			productReference = 5C4000000000000000000004 /* SongClips4.app */;
+			productName = SongClips;
+			productReference = 5C4000000000000000000004 /* SongClips.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -145,7 +145,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				5C4000000000000000000005 /* SongClips4 */,
+				5C4000000000000000000005 /* SongClips */,
 			);
 		};
 /* End PBXProject section */
@@ -264,7 +264,7 @@
 				);
 				MARKETING_VERSION = 4.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.j4u2.SongClips;
-				PRODUCT_NAME = SongClips4;
+				PRODUCT_NAME = SongClips;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -290,7 +290,7 @@
 				);
 				MARKETING_VERSION = 4.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.j4u2.SongClips;
-				PRODUCT_NAME = SongClips4;
+				PRODUCT_NAME = SongClips;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -311,7 +311,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5C4000000000000000000033 /* Build configuration list for PBXNativeTarget "SongClips4" */ = {
+		5C4000000000000000000033 /* Build configuration list for PBXNativeTarget "SongClips" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5C4000000000000000000034 /* Debug */,

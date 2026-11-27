@@ -21,7 +21,7 @@ struct VideoBrowserView: View {
     var body: some View {
         List {
             if !items.isEmpty {
-                Section("iPod Library") {
+                Section("Music Library") {
                     ForEach(items, id: \.persistentID) { item in
                         Button {
                             choose(item)

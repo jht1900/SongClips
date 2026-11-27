@@ -59,11 +59,17 @@ Supported sizes for app previews include
 supported sizes include 2556 × 1179px, 1179 × 2556px, 2622 × 1206px 
 and 1206 × 2622px.
 
->> Add from Library
->> SongClips name
-
 0.7
 
 in aa/SongClips-swiftUI
 apply to info plist
 ITSAppUsesNonExemptEncryption to NO
+
+0.8
+
+>> Add from Music Library
+>> SongClips target rename
+
+in aa/SongClips-swiftUI
+rename scheme name SongClips4 to SongClips
+

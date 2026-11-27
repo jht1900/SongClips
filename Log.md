@@ -404,3 +404,47 @@ I set `ITSAppUsesNonExemptEncryption` to `NO` in [aa/SongClips-swiftUI/Sources/I
 The file was in `Sources/`, not `SongClips4/`. You'd renamed the folder, and the project already points at the new path. The change isn't staged or committed.
 
 *Time: 22s · Cost: $0.4281 (input 10, output 866, cache write 46.0k, cache read 214.1k) · session $1.3045*
+
+---
+
+## User (11/27/2026, 7:26:02 AM)
+
+```
+in aa/SongClips-swiftUI
+rename scheme name SongClips4 to SongClips
+```
+
+## Assistant
+
+The SwiftUI project's scheme is now called `SongClips`. I renamed the shared scheme file to `SongClips.xcscheme` and staged the rename, and `xcodebuild -list` now shows `SongClips` as the only scheme.
+
+Only the scheme changed. The target and the built app are still called `SongClips4`, which is the name that shows on the home screen. Xcode may need a reopen to show the new scheme name in its picker.
+
+*Time: 10s · Cost: $0.0579 (input 8, output 642, cache write 672, cache read 198.5k) · session $1.3624*
+
+---
+
+## User (11/27/2026, 7:27:00 AM)
+
+```
+<ide_opened_file>The user opened the file /Users/jht2/Documents/projects/_2026/SongClips-2026/SongClips/_prompts.txt in the IDE. This may or may not be related to the current task.</ide_opened_file>
+rename target and app name SongClips4 to SongClips
+```
+
+## Assistant
+
+No code depends on the module name, and nothing is saved with archiver class names, so renaming the module is safe. Checking the bundle ID and every remaining `SongClips4` mention in the project:
+
+The bundle ID is already `com.j4u2.SongClips`. Applying the rename:
+
+The target and app in the SwiftUI project are now called `SongClips`. It builds, and the built app is `SongClips.app`, with name, display name and executable all `SongClips`. The bundle ID is still `com.j4u2.SongClips`, which was already set.
+
+- **Files changed:** I replaced every `SongClips4` in `project.pbxproj` (target, product name, `.app`) and in the scheme file. There are none left in either.
+- **Module name:** the Swift module is now `SongClips` too. No code refers to the old module name and no saved data depends on it, so this shouldn't affect existing data.
+- **Not changed:** the `//  SongClips4` header comment at the top of each Swift file in `Sources/`. I can update those as well if you'd like.
+
+Now that the SwiftUI app uses the bundle ID `com.j4u2.SongClips`, it will replace an installed SongClips3 on a device if that app has the same ID. They won't install side by side anymore.
+
+These edits aren't staged or committed.
+
+*Time: 37s · Cost: $0.1284 (input 10, output 2.3k, cache write 3.5k, cache read 271.7k) · session $1.4908*

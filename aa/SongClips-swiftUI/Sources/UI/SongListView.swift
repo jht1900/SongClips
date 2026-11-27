@@ -45,7 +45,7 @@ struct SongListView: View {
                 showAddOptions = true
             } label: {
                 HStack {
-                    Text("Add from iPod Library...")
+                    Text("Add from Music Library...")
                         .foregroundStyle(Color.songClipsGreen)
                     Spacer()
                     Image(systemName: "chevron.right")
