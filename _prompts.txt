@@ -73,3 +73,4 @@ ITSAppUsesNonExemptEncryption to NO
 in aa/SongClips-swiftUI
 rename scheme name SongClips4 to SongClips
 
+rename target and app name SongClips4 to SongClips
